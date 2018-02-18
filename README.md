@@ -2,7 +2,7 @@
 
 > Repo to kept challenges from wesbos
 
-## How install
+## How to install
 
 ..
 
