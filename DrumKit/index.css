@@ -1,0 +1,42 @@
+* {
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: #ffa000;
+}
+
+.container__box {
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    width: 80px;
+    height: 70px;
+    border: 2px solid #000;
+    margin: 0.7rem;
+    background-color: #ccc;
+    transition: all 0.7s;
+    text-align: center;
+}
+
+.box>span {
+    display: inline-block;
+    width: 100%;
+}
+
+.box--active,
+.box:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 0 0 2px 1px #000;
+}
