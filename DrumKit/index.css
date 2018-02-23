@@ -1,4 +1,5 @@
 * {
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     box-sizing: border-box;
     margin: 0;
@@ -10,9 +11,22 @@ body {
     background-color: #ffa000;
 }
 
+.header {
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+}
+
+.header__title {
+    position: relative;
+    top: 5rem;
+    font-size: 4rem;    
+    font-style: italic;
+}
+
 .container__box {
     width: 90%;
-    height: 100vh;
+    height: 80vh;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -39,4 +53,13 @@ body {
     transform: scale(1.2);
     cursor: pointer;
     box-shadow: 0 0 2px 1px #000;
+}
+
+.box__key {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.box__type-sound {
+    text-transform: uppercase;
 }
