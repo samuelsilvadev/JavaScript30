@@ -19,9 +19,8 @@ body {
 
 .header__title {
     position: relative;
-    top: 5rem;
-    font-size: 4rem;    
-    font-style: italic;
+    top: 3rem;
+    font-size: 4rem;
 }
 
 .container__box {
@@ -62,4 +61,11 @@ body {
 
 .box__type-sound {
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 900px) {
+    .container__box{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }    
 }
