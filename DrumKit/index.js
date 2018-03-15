@@ -20,18 +20,23 @@ const DrumModule = (function () {
         return this;
     }
 
-    Drum.prototype.init = function() {
+    Drum.prototype.init = function () {
         const that = this;
-        document.addEventListener('keydown', e => {
+
+        function playSong(e) {
+            console.log(e);
             const $audioElement = document.querySelector(`audio.${that._keys[e.keyCode]}`);
             const $buttoElement = document.querySelector(`div.${that._keys[e.keyCode]}`);
-            
+
             if ($audioElement && $buttoElement) {
+                $audioElement.currentTime = 0;
                 $audioElement.play();
                 $buttoElement.classList.add('box--active');
-                $audioElement.addEventListener('ended', () => { $buttoElement.classList.remove('box--active'); });
+                $buttoElement.addEventListener('transitionend', () => { $buttoElement.classList.remove('box--active'); });
             }
-        });
+        }
+
+        document.addEventListener('keydown', playSong);
         return this;
     }
 
