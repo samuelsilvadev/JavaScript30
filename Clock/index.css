@@ -31,6 +31,7 @@ html {
     margin: 0 auto;
     position: relative;
     width: 40vh;
+    transform: rotate(90deg);
 }
 
 .clock__hour,
@@ -42,8 +43,9 @@ html {
     height: 1vh;
     position: absolute;
     width: 50%;
+    transition:  all 0.5s;    
     transform-origin: center right;
-    transform: rotate(90deg);
+    transform: rotate(0deg);
 }
 
 .clock__hour {
