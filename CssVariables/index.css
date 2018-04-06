@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blur: 0;
+    --background-color: red;
+    --spacing: 0;
+}
+
+.page {
+    background-color: #512da8;
+    font-family: 'Open Sans Condensed', sans-serif;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;    
+    width: 60%;
+}
