@@ -5,8 +5,8 @@
 }
 
 :root {
-    --blur: 0;
-    --background-color: red;
+    --blur: 0px;
+    --background-color: #fff;
     --spacing: 0;
 }
 
@@ -14,6 +14,7 @@
     background-color: #512da8;
     font-family: 'Open Sans Condensed', sans-serif;
     height: 100vh;
+    overflow: hidden;
     width: 100%;
 }
 
@@ -24,6 +25,32 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    text-align: center;    
+    text-align: center;
     width: 60%;
+}
+
+.image-wrapper {
+    margin-top: 10%;
+}
+
+.image-wrapper__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.image-wrapper__image {
+    background-color: var(--background-color);
+    filter: blur(var(--blur));
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 100%;
+    padding: var(--spacing);
+    width: 80%;
+}
+
+.controls__input {
+    width: 100%;
 }
