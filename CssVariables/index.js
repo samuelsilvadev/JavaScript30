@@ -9,16 +9,18 @@
         'blur': _VARIABLE_BLUR,
         'spacing': _VARIABLE_SPACING
     };
-    const jsImageStyling = document.querySelector('.js-image-styling');
     const jsInputsControls = Array.prototype.slice.call(document.querySelectorAll('.js-input-control'));
     const handleChangeInput = function (e) {
         if (this === window) {
             console.error('Object "this" is appointing to windows');
             return;
         }
-        const valueToApply = this.value;
+        let valueToApply = this.value;
         const whereApply = this.dataset.type;
-        jsImageStyling.style.setProperty(types[whereApply], `${valueToApply}px`)
+        if (whereApply !== 'background') {
+            valueToApply = valueToApply + 'px';
+        }
+        document.documentElement.style.setProperty(types[whereApply], valueToApply);
     };
 
     jsInputsControls.forEach(input => input.addEventListener('change', handleChangeInput, false))
