@@ -1,60 +1,57 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-    --blur: 0px;
-    --background-color: #000;
-    --spacing: 0;
+  --blur: 0px;
+  --background-color: #000;
+  --spacing: 0;
 }
 
-.page {
-    background-color: #512da8;
-    font-family: 'Open Sans Condensed', sans-serif;
-    height: 100vh;
-    overflow: hidden;
-    width: 100%;
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #512da8;
+  font-family: 'Open Sans Condensed', sans-serif;
+  overflow: hidden;
 }
 
 .container {
-    background-color: #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);
-    height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    text-align: center;
-    width: 60%;
+  width: 60%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .23), 0 3px 10px rgba(0, 0, 0, .16);
+  margin: 0 auto;
+  text-align: center;
 }
 
 .header__title--colorful {
-    color: var(--background-color);
+  color: var(--background-color);
 }
 
 .image-wrapper {
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
-.image-wrapper__controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    width: 50%;
-}
-
-.image-wrapper__image {
-    background-color: var(--background-color);
-    filter: blur(var(--blur));
-    margin-top: 5%;
-    margin-bottom: 5%;
-    max-width: 100%;
-    padding: var(--spacing);
-    width: 80%;
+.controls {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .controls__input {
-    width: 100%;
+  width: 100%;
+}
+
+.image-wrapper__image {
+  width: 80%;
+  background-color: var(--background-color);
+  filter: blur(var(--blur));
+  margin: 5%;
+  max-width: 100%;
+  padding: var(--spacing);
 }
