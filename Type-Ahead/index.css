@@ -7,6 +7,16 @@ body {
     padding: 0;
 }
 
+ul {
+    display: block;
+    list-style-type: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
 .main-content {
     align-items: center;
     background-color: #d63031;
@@ -40,11 +50,12 @@ body {
     background-color: #fff;
     font-size: 1em;
     height: 50px;
+    list-style: none;
     line-height: 3em;
     text-align: center;
     transition: all 1s;
-    width: 250px;
     vertical-align: middle;
+    width: 250px;
 }
 
 .box-result__item:hover {
@@ -54,9 +65,9 @@ body {
 }
 
 .box-result__item:nth-child(odd) {
-    transform: skew(10deg);
+    transform: skew(8deg);
 }
 
 .box-result__item:nth-child(even) {
-    transform: skew(-10deg);
+    transform: skew(-8deg);
 }
