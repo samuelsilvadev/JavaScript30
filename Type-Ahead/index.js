@@ -21,16 +21,21 @@
                 const result = allCities.filter(obj =>
                     obj.city.toLowerCase().indexOf(valueToSearch) !== -1 ||
                     obj.state.toLowerCase().indexOf(valueToSearch) !== -1
-                ).map(data =>
-                    `<li class="box-result__item">
-                        <span>${data.state}</span>,
-                        <span>${data.city}</span>
-                    </li>`
-                );
+                ).map(data => {
+
+                    const regex = new RegExp(valueToSearch, 'gi');
+                    const stateName = data.state.replace(regex, `<span class="box-result__item--hilight">${valueToSearch}</span>`);
+                    const cityName = data.city.replace(regex, `<span class="box-result__item--hilight">${valueToSearch}</span>`);
+
+                    return `<li class="box-result__item">
+                        <span>${stateName}</span>,
+                        <span>${cityName}</span>
+                    </li>`;
+                });
                 result.length = 10;
                 $boxResult.innerHTML = result.join('');
             }
-        }, 300);
+        }, 100);
     }
 
     function getAllCitiesAndStates() {

@@ -55,19 +55,16 @@ ul {
     text-align: center;
     transition: all 1s;
     vertical-align: middle;
-    width: 250px;
+    width: 300px;
+}
+
+.box-result__item--hilight {
+    background-color: #d63031;
+    color: #fff;
 }
 
 .box-result__item:hover {
     background-color: #d63031;
     color: #fff;
     cursor: pointer;
-}
-
-.box-result__item:nth-child(odd) {
-    transform: skew(8deg);
-}
-
-.box-result__item:nth-child(even) {
-    transform: skew(-8deg);
 }
