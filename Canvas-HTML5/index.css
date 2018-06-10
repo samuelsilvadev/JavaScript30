@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    --color-board: #00b894;
 }
 
 html,
@@ -9,5 +10,21 @@ body {
 }
 
 .canvas {
-    border: 10px solid #00b894;
+    border: 10px solid var(--color-board);
+}
+
+.pallete {
+    background-color: var(--color-board);
+    font-size: 12px;
+    height: 200px;
+    position: fixed;
+    padding: 10px;
+    top: calc(50% - 100px);
+    width: 100px;
+}
+
+.pallete input {
+    border: 0;
+    outline: none;
+    width: 100%;
 }
