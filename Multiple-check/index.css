@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    --height-box-item: 55px;
 }
 
 main {
@@ -23,7 +24,7 @@ main {
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
-    height: 40px;
+    height: var(--height-box-item);
     transition: background-color .5s;
 }
 
@@ -35,6 +36,15 @@ main {
     flex-grow: 1;
 }
 
+.box-todo__item>input:checked+p {
+    text-decoration: line-through;
+}
+
 .box-todo__item>p {
-    flex-grow: 2;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    flex-grow: 5;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: var(--height-box-item);
 }
