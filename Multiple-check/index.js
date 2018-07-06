@@ -3,8 +3,8 @@
 
     const $checkboxes = document.querySelectorAll('[data-js="box-todo-item"]');
     const arrayChecks = Array.from($checkboxes);
-    let firstClick = 0;
-    let lastClick = 0
+    let firstClick = null;
+    let lastClick = null;
     let shiftIsPressed = false;
 
     arrayChecks.forEach((check, index) => {
@@ -14,9 +14,16 @@
             } else {
                 firstClick = index;
             }
-            if (firstClick >= 0 && lastClick > 0) {
-                arrayChecks.slice(firstClick, lastClick).forEach(c => c.checked = true);
+
+            if (isNotNull(firstClick) && isNotNull(lastClick) && firstClick !== lastClick) {
+
+                const one = firstClick > lastClick ? lastClick : firstClick;
+                const last = lastClick > firstClick ? lastClick : firstClick;
+
+                arrayChecks.slice(one, last).forEach(c => c.checked = true);
                 shiftIsPressed = false;
+                firstClick = null;
+                lastClick = null;
             }
         });
     });
@@ -27,4 +34,7 @@
         }
     });
 
+    function isNotNull(value) {
+        return value !== null;
+    }
 })();
