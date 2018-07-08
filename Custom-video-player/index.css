@@ -13,15 +13,18 @@
     margin: auto;
     padding-top: 100px;
     position: relative;
-    width: 500px;
+    overflow: hidden;
+    max-width: 500px;
 }
 
 .player__controls {
     background-color: rgba(0, 0, 0, 0.5);
+    bottom: -22px;
     display: flex;
     flex-wrap: wrap;
+    height: 30px;
     position: absolute;
-    bottom: 0;
+    transition: bottom .5s;
     width: 100%;
 }
 
@@ -55,11 +58,7 @@
     width: 100%;
 }
 
-.player__video+.player__controls {
-    visibility: hidden;
-}
-
 .player__video:hover+.player__controls,
 .player__controls:hover {
-    visibility: visible;
+    bottom: 0;
 }
