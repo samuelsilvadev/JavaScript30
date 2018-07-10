@@ -4,7 +4,7 @@
     const $video = doc.querySelector('[data-js="video"]');
     const $buttonTriggerVideo = doc.querySelector('[data-js="button-trigger-video"]');
     const $buttonsSkip = doc.querySelectorAll('[data-skip]');
-    const $rangePropsVideo = doc.querySelectorAll('[data-js="rangePropsVideo"]');
+    const $rangePropsVideo = doc.querySelectorAll('[data-js="range-props-video"]');
 
     let isPlayingVideo = false;
     let isEventsAlreadyAdded = false;

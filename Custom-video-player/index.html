@@ -17,11 +17,11 @@
             </video>
             <div class="player__controls">
                 <div class="progress">
-                    <div class="progress__filled"></div>
+                    <div class="progress__filled" data-js="progress-status"></div>
                 </div>
                 <button class="player__button player__button-play" title="Click to play video" data-js="button-trigger-video">►</button>
-                <input class="player__slider" type="range" name="volume" min="0" max="1" step="0.05" value="1" data-js="rangePropsVideo">
-                <input class="player__slider" type="range" name="playbackRate" min="0.5" max="2" step="0.1" value="1" data-js="rangePropsVideo">
+                <input class="player__slider" type="range" name="volume" min="0" max="1" step="0.05" value="1" data-js="range-props-video">
+                <input class="player__slider" type="range" name="playbackRate" min="0.5" max="2" step="0.1" value="1" data-js="range-props-video">
                 <button class="player__button" data-skip="-10">« 10</button>
                 <button class="player__button" data-skip="25">25 »</button>
             </div>
