@@ -3,7 +3,9 @@
 
     const $video = doc.querySelector('[data-js="video"]');
     const $buttonTriggerVideo = doc.querySelector('[data-js="button-trigger-video"]');
+    const $buttonsSkip = doc.querySelectorAll('[data-skip]');
     let isPlayingVideo = false;
+    let isEventsAlreadyAdded = false;
     const ICON_PAUSE = '▮▮';
     const ICON_PLAY = '►';
     const TITLE_PAUSE = 'Click to pause video';
@@ -15,7 +17,12 @@
     $video.addEventListener('loadeddata', detectTypeEventVideo);
     $video.addEventListener('canplay', e => {
         detectTypeEventVideo(e);
-        addEventsInControls();
+        if (!isEventsAlreadyAdded) { addEventsInControls(); }
+    });
+    $video.addEventListener('ended', e => {
+        detectTypeEventVideo(e);
+        $video.currentTime = 0;
+        isPlayingVideo = false;
     });
 
     function detectTypeEventVideo(evt) {
@@ -51,11 +58,19 @@
         $buttonTriggerVideo.title = textToTitle;
     }
 
+    function skip() {
+        const { dataset } = this;
+        const valueToSkip = parseFloat(dataset.skip);
+        $video.currentTime += valueToSkip;
+    }
+
     function addEventsInControls() {
         $buttonTriggerVideo.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('play', updateButton);
         $video.addEventListener('pause', updateButton);
+        Array.from($buttonsSkip).forEach(skipBtn => skipBtn.addEventListener('click', skip));
+        isEventsAlreadyAdded = true;
     }
 
 })(window, document);
