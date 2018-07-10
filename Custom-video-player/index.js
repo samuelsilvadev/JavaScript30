@@ -6,9 +6,11 @@
     const $buttonsSkip = doc.querySelectorAll('[data-skip]');
     const $rangePropsVideo = doc.querySelectorAll('[data-js="range-props-video"]');
     const $progressStatus = doc.querySelector('[data-js="progress-status"]');
+    const $progress = doc.querySelector('[data-js="progress"]');
 
     let isPlayingVideo = false;
     let isEventsAlreadyAdded = false;
+    let isMouseDown = false;
     const ICON_PAUSE = '▮▮';
     const ICON_PLAY = '►';
     const TITLE_PAUSE = 'Click to pause video';
@@ -76,6 +78,12 @@
         $progressStatus.style.width = `${percent}%`;
     }
 
+    function handleToChangeTimeVideo(e) {
+        console.log('changing time...');
+        const newTimeVideo = (e.offsetX / $progress.offsetWidth) * $video.duration;
+        $video.currentTime = newTimeVideo;
+    }
+
     function addEventsInControls() {
         $buttonTriggerVideo.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('click', handleClickOnVideo);
@@ -86,6 +94,10 @@
         const arraysRanges = Array.from($rangePropsVideo);
         arraysRanges.forEach(rangeInput => rangeInput.addEventListener('change', handleRanges));
         arraysRanges.forEach(rangeInput => rangeInput.addEventListener('mousemove', handleRanges));
+        $progress.addEventListener('click', handleToChangeTimeVideo);
+        $progress.addEventListener('mousemove', (e) => isMouseDown && handleToChangeTimeVideo(e));
+        $progress.addEventListener('mousedown', () => isMouseDown = true);
+        $progress.addEventListener('mouseup', () => isMouseDown = false);
         isEventsAlreadyAdded = true;
     }
 
