@@ -4,6 +4,8 @@
     const $video = doc.querySelector('[data-js="video"]');
     const $buttonTriggerVideo = doc.querySelector('[data-js="button-trigger-video"]');
     const $buttonsSkip = doc.querySelectorAll('[data-skip]');
+    const $rangePropsVideo = doc.querySelectorAll('[data-js="rangePropsVideo"]');
+
     let isPlayingVideo = false;
     let isEventsAlreadyAdded = false;
     const ICON_PAUSE = '▮▮';
@@ -64,12 +66,19 @@
         $video.currentTime += valueToSkip;
     }
 
+    function handleRanges() {
+        $video[this.name] = this.value;
+    }
+
     function addEventsInControls() {
         $buttonTriggerVideo.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('play', updateButton);
         $video.addEventListener('pause', updateButton);
         Array.from($buttonsSkip).forEach(skipBtn => skipBtn.addEventListener('click', skip));
+        const arraysRanges = Array.from($rangePropsVideo);
+        arraysRanges.forEach(rangeInput => rangeInput.addEventListener('change', handleRanges));
+        arraysRanges.forEach(rangeInput => rangeInput.addEventListener('mousemove', handleRanges));
         isEventsAlreadyAdded = true;
     }
 
