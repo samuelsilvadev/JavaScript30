@@ -5,6 +5,7 @@
     const $buttonTriggerVideo = doc.querySelector('[data-js="button-trigger-video"]');
     const $buttonsSkip = doc.querySelectorAll('[data-skip]');
     const $rangePropsVideo = doc.querySelectorAll('[data-js="range-props-video"]');
+    const $progressStatus = doc.querySelector('[data-js="progress-status"]');
 
     let isPlayingVideo = false;
     let isEventsAlreadyAdded = false;
@@ -70,11 +71,17 @@
         $video[this.name] = this.value;
     }
 
+    function handleProgressStatus() {
+        const percent = ((this.currentTime / this.duration) * 100);
+        $progressStatus.style.width = `${percent}%`;
+    }
+
     function addEventsInControls() {
         $buttonTriggerVideo.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('play', updateButton);
         $video.addEventListener('pause', updateButton);
+        $video.addEventListener('timeupdate', handleProgressStatus);
         Array.from($buttonsSkip).forEach(skipBtn => skipBtn.addEventListener('click', skip));
         const arraysRanges = Array.from($rangePropsVideo);
         arraysRanges.forEach(rangeInput => rangeInput.addEventListener('change', handleRanges));

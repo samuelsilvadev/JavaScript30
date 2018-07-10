@@ -39,7 +39,7 @@
 .progress__filled {
     background-color: yellow;
     height: inherit;
-    width: 70%;
+    width: 0%;
 }
 
 .player__slider {
