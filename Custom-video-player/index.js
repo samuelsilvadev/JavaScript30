@@ -2,8 +2,12 @@
 (function (win, doc) {
 
     const $video = doc.querySelector('[data-js="video"]');
-    const $playButton = doc.querySelector('[data-js="play-button"]');
+    const $buttonTriggerVideo = doc.querySelector('[data-js="button-trigger-video"]');
     let isPlayingVideo = false;
+    const ICON_PAUSE = '▮▮';
+    const ICON_PLAY = '►';
+    const TITLE_PAUSE = 'Click to pause video';
+    const TITLE_PLAY = 'Click to play video';
 
     $video.addEventListener('error', detectTypeEventVideo);
     $video.addEventListener('loadstart', detectTypeEventVideo);
@@ -18,15 +22,14 @@
         console.log(evt.type, evt);
     }
 
-    function playVideo(e) {
-        console.log(e.target);
+    function _playVideo(e) {
         if ($video) {
             $video.play();
             isPlayingVideo = true;
         }
     }
 
-    function pauseVideo() {
+    function _pauseVideo() {
         if ($video) {
             $video.pause();
             isPlayingVideo = false;
@@ -35,15 +38,24 @@
 
     function handleClickOnVideo(e) {
         if (!isPlayingVideo) {
-            playVideo(e);
+            _playVideo(e);
             return;
         }
-        pauseVideo();
+        _pauseVideo();
+    }
+
+    function updateButton() {
+        const textToButton = isPlayingVideo ? ICON_PAUSE : ICON_PLAY;
+        const textToTitle = isPlayingVideo ? TITLE_PAUSE : TITLE_PLAY;
+        $buttonTriggerVideo.textContent = textToButton;
+        $buttonTriggerVideo.title = textToTitle;
     }
 
     function addEventsInControls() {
-        $playButton.addEventListener('click', playVideo);
+        $buttonTriggerVideo.addEventListener('click', handleClickOnVideo);
         $video.addEventListener('click', handleClickOnVideo);
+        $video.addEventListener('play', updateButton);
+        $video.addEventListener('pause', updateButton);
     }
 
 })(window, document);

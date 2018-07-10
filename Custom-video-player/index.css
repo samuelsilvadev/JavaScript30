@@ -20,7 +20,7 @@
 
 .player__controls {
     background-color: rgba(0, 0, 0, 0.5);
-    bottom: -22px;
+    bottom: -24px;
     display: flex;
     flex-wrap: wrap;
     height: 30px;
@@ -63,5 +63,5 @@
 
 .player__video:hover+.player__controls,
 .player__controls:hover {
-    bottom: 0;
+    bottom: 4px;
 }
