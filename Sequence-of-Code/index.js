@@ -11,13 +11,14 @@
 
     win.addEventListener('keyup', e => {
         pressedKeys.push(e.key);
-        pressedKeys.splice(-SECRET_KEY.length - 1, pressedKeys.length - SECRET_KEY.length);
+        pressedKeys.splice(
+            -SECRET_KEY.length - 1,
+            pressedKeys.length - SECRET_KEY.length
+        );
         setTextinBox();
         if (pressedKeys.join('').indexOf(SECRET_KEY) > -1) {
-            console.log('YOU WON');
+            cornify_add();
         }
     });
-
-
 
 })(window, document);
