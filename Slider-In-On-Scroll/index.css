@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ffc600;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.page {
+    background-color: #fff;
+    padding: 40px;
+    margin: 100px auto;
+    width: 70vw;
+}
+
+.page article {
+    margin-bottom: 10px;
+}
+
+.align-left {
+    float: left;
+    margin-right: 20px;
+}
+
+.align-right {
+    float: right;
+    margin-left: 20px;
+}
