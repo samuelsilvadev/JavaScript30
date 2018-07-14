@@ -19,8 +19,13 @@ html {
     width: 70vw;
 }
 
+.page h1 {
+    margin-bottom: 20px;
+}
+
 .page article {
     margin-bottom: 10px;
+    text-align: justify;
 }
 
 .align-left {
@@ -31,4 +36,23 @@ html {
 .align-right {
     float: right;
     margin-left: 20px;
+}
+
+.slide-in {
+    opacity: 0;
+    transition: all 1s;
+    transform: scale(.95);
+}
+
+.slide-in--active {
+    opacity: 1;
+    transform: scale(1) translate(0);
+}
+
+img[class='align-right slide-in'] {
+    transform: translateX(30%);
+}
+
+img[class='align-left slide-in'] {
+    transform: translateX(-30%);
 }
