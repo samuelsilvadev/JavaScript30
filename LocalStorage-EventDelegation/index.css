@@ -50,6 +50,22 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.food__list input {
+    display: none;
+}
+
+.food__list input[type="checkbox"]+label::before {
+    content: '\02610';
+    margin-right: 5px;
+    font-size: 1.3em;
+}
+
+.food__list input[type="checkbox"]:checked+label::before {
+    content: '\2705';
+    margin-right: 5px;
+    font-size: 1.3em;
+}
+
 .food__request {
     display: flex;
     padding: 15px;
