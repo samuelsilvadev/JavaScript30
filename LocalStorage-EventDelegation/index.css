@@ -54,6 +54,10 @@ html {
     display: none;
 }
 
+.food__list input[type="checkbox"]+label {
+    cursor: pointer;
+}
+
 .food__list input[type="checkbox"]+label::before {
     content: '\02610';
     margin-right: 5px;

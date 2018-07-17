@@ -26,9 +26,20 @@
         )).join('');
     }
 
+    function loadFoodsFromStorage() {
+        setTimeout(() => {
+            const foodsStorage = JSON.parse(win.localStorage.getItem('foods'));
+            foods.push(...foodsStorage);
+            populateList(foods, $listFoods);
+        }, 500);
+    }
+
     $formAddFood.addEventListener('submit', function (e) {
         addFood.bind(this)(e);
         populateList(foods, $listFoods);
+        win.localStorage.setItem('foods', JSON.stringify(foods));
     });
+
+    doc.addEventListener('DOMContentLoaded', loadFoodsFromStorage);
 
 })(window, document);
