@@ -70,6 +70,11 @@ html {
     font-size: 1.3em;
 }
 
+.food__list input[type="checkbox"]:checked+label {
+    color: #9e9398;
+    text-decoration: line-through;
+}
+
 .food__request {
     display: flex;
     padding: 15px;

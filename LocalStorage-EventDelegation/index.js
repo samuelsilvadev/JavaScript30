@@ -19,7 +19,7 @@
         $list.innerHTML = foods.map((food, i) => (
             `
             <li>
-                <input id="${i}" type="checkbox" ${food.selected ? 'checked' : ''}">
+                <input id="${i}" type="checkbox" ${food.selected ? 'checked' : ''}>
                 <label for="${i}">${food.name}</label>
             </li>
             `
@@ -27,19 +27,33 @@
     }
 
     function loadFoodsFromStorage() {
-        setTimeout(() => {
-            const foodsStorage = JSON.parse(win.localStorage.getItem('foods'));
-            foods.push(...foodsStorage);
-            populateList(foods, $listFoods);
-        }, 500);
+        setTimeout(_getDataStorage, 500);
     }
 
-    $formAddFood.addEventListener('submit', function (e) {
+    function _getDataStorage() {
+        const foodsStorage = JSON.parse(win.localStorage.getItem('foods')) || [];
+        foods.push(...foodsStorage);
+        populateList(foods, $listFoods);
+    }
+
+    function saveFood(e) {
         addFood.bind(this)(e);
         populateList(foods, $listFoods);
         win.localStorage.setItem('foods', JSON.stringify(foods));
-    });
+    }
 
-    doc.addEventListener('DOMContentLoaded', loadFoodsFromStorage);
+    function toogleStateFood(e) {
+        if (!e.target.matches('input')) return;
+        const index = e.target.id;
+        foods[index].selected = !foods[index].selected;
+        win.localStorage.setItem('foods', JSON.stringify(foods));
+        populateList(foods, $listFoods);
+    }
+
+    (function addEventOnNodes() {
+        $formAddFood.addEventListener('submit', saveFood);
+        $listFoods.addEventListener('click', toogleStateFood);
+        doc.addEventListener('DOMContentLoaded', loadFoodsFromStorage);
+    })();
 
 })(window, document);
