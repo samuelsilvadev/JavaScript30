@@ -16,7 +16,10 @@
         const yWalk = Math.round((y / height * walk) - (walk / 2));
 
         $boxText.style.textShadow = `
-            ${xWalk}px ${yWalk}px 0 red
+            ${xWalk}px ${yWalk}px 0 red,
+            ${xWalk * -1}px ${yWalk}px 0 green,
+            ${yWalk}px ${xWalk * -1}px 0 pink,
+            ${yWalk * -1}px ${xWalk}px 0 blue
         `;
     }
 
