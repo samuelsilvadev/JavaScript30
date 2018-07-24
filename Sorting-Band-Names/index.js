@@ -23,7 +23,19 @@
         $list.innerHTML = bands.map(band => `<li>${band}</li>`).join('');
     }
 
-    insertBandsOnList(bands, $listNames);
+    function sortBandNames(bandArr) {
+        bandArr.sort((a, b) => {
+            if (a > b) {
+                return 1;
+            }
+            if (a < b) {
+                return -1;
+            }
+            return 0;
+        });
+    }
 
+    sortBandNames(bands);
+    insertBandsOnList(bands, $listNames);
 
 })(window, document);
