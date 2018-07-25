@@ -23,16 +23,19 @@
         $list.innerHTML = bands.map(band => `<li>${band}</li>`).join('');
     }
 
+    function sortAscOrderWithoutArticles(a, b) {
+        if (strip(a) > strip(b)) {
+            return 1;
+        }
+        return -1;
+    }
+
+    function strip(bandName) {
+        return bandName.replace(/^(a |an | the)/i, '').trim();
+    }
+
     function sortBandNames(bandArr) {
-        bandArr.sort((a, b) => {
-            if (a > b) {
-                return 1;
-            }
-            if (a < b) {
-                return -1;
-            }
-            return 0;
-        });
+        bandArr.sort(sortAscOrderWithoutArticles);
     }
 
     sortBandNames(bands);
