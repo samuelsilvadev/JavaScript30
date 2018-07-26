@@ -23,7 +23,6 @@ body {
 
 .list-names {
     background: #fff;
-    height: 100vh;
     min-width: 200px;
     list-style: none;
     padding: 40px;
@@ -32,4 +31,10 @@ body {
 
 .list-names>li {
     padding: 10px 0;
+}
+
+@media (max-width: 1100px) and (max-height: 450px) {
+    .list-names{
+        height: 100vh;
+    }
 }
