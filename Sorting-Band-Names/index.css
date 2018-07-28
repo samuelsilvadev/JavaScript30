@@ -36,6 +36,26 @@ body {
     padding: 10px 0;
 }
 
+.triangule-icon {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    line-height: 1rem;
+    vertical-align: middle;
+}
+
+.triangule-icon--down{
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid black;
+}
+
+.triangule-icon--up{
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid black;
+}
+
 @media (max-width: 1100px) and (max-height: 450px) {
     .list-names{
         height: 100vh;
