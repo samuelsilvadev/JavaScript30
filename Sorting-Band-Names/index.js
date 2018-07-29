@@ -18,6 +18,9 @@
     ];
 
     const $listNames = doc.querySelector('[data-js="list-names"]');
+    const $tringuleIcon = doc.querySelector('[data-js="triangule-icon"]');
+    const ASC = 'ASC';
+    const DESC = 'DESC';
 
     function insertBandsOnList(bands, $list) {
         $list.innerHTML = bands.map(band => `<li>${band}</li>`).join('');
@@ -30,15 +33,39 @@
         return -1;
     }
 
+    function sortDescOrderWithoutArticles(a, b) {
+        if (strip(a) > strip(b)) {
+            return -1;
+        }
+        return 1;
+    }
+
     function strip(bandName) {
         return bandName.replace(/^(a |an | the)/i, '').trim();
     }
 
-    function sortBandNames(bandArr) {
-        bandArr.sort(sortAscOrderWithoutArticles);
+    function sortBandNames(bandArr, order) {
+        bandArr.sort(!order || order === ASC ? sortAscOrderWithoutArticles : sortDescOrderWithoutArticles);
     }
 
-    sortBandNames(bands);
-    insertBandsOnList(bands, $listNames);
+    function handleClickTrianguleIcon() {
+        if (this.classList.contains('triangule-icon--down')) {
+            this.classList.add('triangule-icon--up');
+            this.classList.remove('triangule-icon--down');
+            sortBandNames(bands, ASC);
+        } else if (this.classList.contains('triangule-icon--up')) {
+            this.classList.add('triangule-icon--down');
+            this.classList.remove('triangule-icon--up');
+            sortBandNames(bands, DESC);
+        }
+        insertBandsOnList(bands, $listNames);
+    }
+
+    (function makeFirstOrder() {
+        sortBandNames(bands);
+        insertBandsOnList(bands, $listNames);
+    })();
+
+    $tringuleIcon.addEventListener('click', handleClickTrianguleIcon, false);
 
 })(window, document);
