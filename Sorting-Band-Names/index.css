@@ -37,11 +37,13 @@ body {
 }
 
 .triangule-icon {
+    cursor: pointer;
     display: inline-block;
     height: 0;
     width: 0;
     line-height: 1rem;
     vertical-align: middle;
+    transition: border 200ms;
 }
 
 .triangule-icon--down{
