@@ -6,12 +6,13 @@
     const canvasContext = $canvas.getContext('2d');
 
     function init() {
-        getVideo()
-            .then(paintToCanvas);
+        $video.addEventListener('canplay', paintToCanvas);
+
+        getVideo();
     }
 
     function getVideo() {
-        return navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
             .then((localMediaScreen) => {
                 try {
                     /**
@@ -22,7 +23,7 @@
                 } catch(error) {
                     $video.srcObject = localMediaScreen;
                 }
-                return $video.play();
+                $video.play();
             })
             .catch((error) => {
                 console.error('Something went wrong', error);
