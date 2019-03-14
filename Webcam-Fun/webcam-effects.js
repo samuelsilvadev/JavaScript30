@@ -10,6 +10,30 @@ const webcamEffects = (function() {
         return pixels;
     }
 
+    function greenEffect(pixels, levels = {}) {
+        let red, green, blue, alpha;
+
+        for (let index = 0; index < pixels.data.length; index += 4) {
+            red = pixels.data[index + 0];
+            green = pixels.data[index + 1];
+            blue = pixels.data[index + 2];
+            alpha = pixels.data[index + 3];
+
+            if (
+                red >= levels.redmin &&
+                green >= levels.greenmin &&
+                blue >= levels.bluemin &&
+                red <= levels.redmax &&
+                green <= levels.greenmax &&
+                blue <= levels.bluemax
+            ) {
+                pixels.data[index + 3] = 0;
+            }
+        }
+
+        return pixels;
+    }
+
     function rgbSplit(pixels) {
         for (let index = 0; index < pixels.data.length; index += 4) {
             pixels.data[index - 150] = pixels.data[index + 0]; // RED
@@ -22,5 +46,6 @@ const webcamEffects = (function() {
     return {
         redEffect,
         rgbSplit,
+        greenEffect,
     }
 })();
