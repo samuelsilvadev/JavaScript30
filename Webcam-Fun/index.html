@@ -9,7 +9,32 @@
 </head>
 <body>
     <main>
-        <button class="btn-take-a-photo" data-js="btn-take-a-photo">Take a Photo</button>
+        <form class="green-effect-form" data-js="green-effect-form">
+            <label for="redmin">Red minimum</label>
+            <input id="redmin" type="range" name="redmin" />
+            
+            <label for="greenmin">Green minimum</label>
+            <input id="greenmin" type="range" name="greenmin">
+
+            <label for="bluemin">Blue minimum</label>
+            <input id="bluemin" type="range" name="bluemin">
+
+            <label for="redmax">Red maximum</label>
+            <input id="redmax" type="range" name="redmax">
+
+            <label for="greenmax">Green maximum</label>
+            <input id="greenmax" type="range" name="greenmax">
+
+            <label for="bluemax">Blue maximum</label>
+            <input id="bluemax" type="range" name="bluemax">
+            
+            <button type="button" data-js="btn-green-effect">Apply Green Effect</button>
+        </form>
+        
+        <button type="button" data-js="btn-red-effect">Apply Red Effect</button>
+        <button type="button" data-js="btn-rgb-split-effect">Apply Reg Split Effect</button>
+        <button type="button" class="btn-take-a-photo" data-js="btn-take-a-photo">Take a Photo</button>
+        
         <div class="wrapper">
             <canvas class="canvas" data-js="canvas"></canvas>
             <video class="video" data-js="video"></video>

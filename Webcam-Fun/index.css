@@ -5,6 +5,13 @@
     width: 100%;
 }
 
+.green-effect-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+}
+
 .btn-take-a-photo {
     cursor: pointer;
 }
