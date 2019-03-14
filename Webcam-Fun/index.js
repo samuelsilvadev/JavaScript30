@@ -52,8 +52,15 @@
         
         $link.href = data;
         $link.textContent = 'Download Image';
+        $link.innerHTML = createThumb(data);
 
         $strip.insertBefore($link, $strip.firstChild);
+    }
+
+    function createThumb(src) {
+        return `
+            <img class="thumb-image" src="${src}" />
+        `;
     }
 
     init();
