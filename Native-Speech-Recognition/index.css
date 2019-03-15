@@ -1,0 +1,21 @@
+body {
+    background-color: #2d3436;
+    font-family: 'Roboto', sans-serif;
+}
+
+.notes {
+    background-color: #fdcb6e;
+    margin: auto;
+    min-height: 100px;
+    width: 500px;
+}
+
+.notes__title {
+    padding: 10px;
+    text-align: center;
+}
+
+.notes__line {
+    margin-left: 20px;
+    text-align: left;
+}
