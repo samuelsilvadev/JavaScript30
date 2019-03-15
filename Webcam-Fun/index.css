@@ -1,19 +1,38 @@
+body {
+    background-color: #6c5ce7;
+}
+
+button {
+    cursor: pointer;
+}
+
 .wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
     width: 100%;
 }
 
 .green-effect-form {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto 20px;
     width: 300px;
 }
 
-.btn-take-a-photo {
+.green-effect-form > label {
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons > button {
     cursor: pointer;
+    display: inline-block;
 }
 
 .strip {
