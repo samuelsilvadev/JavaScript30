@@ -7,6 +7,7 @@ body {
     background-color: #fdcb6e;
     margin: auto;
     min-height: 100px;
+    padding-bottom: 10px;
     width: 500px;
 }
 
