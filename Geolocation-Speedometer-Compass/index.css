@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    background-color: #272527;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.compass-icon {
+    fill: #fff;
+    height: 240px;
+    margin-bottom: 20px;;
+    width: 240px;
+}
+
+.compass-data {
+    color: #fff;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
