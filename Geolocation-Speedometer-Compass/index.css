@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .wrapper {
     background-color: #272527;
     height: 100vh;
@@ -26,7 +30,14 @@
 }
 
 .compass-data {
+    align-items: center;
     color: #fff;
+    display: flex;
     font-size: 2rem;
+    justify-content: center;
     text-transform: uppercase;
+}
+
+.compass-value {
+    font-size: 6rem;
 }
