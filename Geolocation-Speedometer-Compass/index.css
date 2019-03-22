@@ -26,6 +26,7 @@ body {
     fill: #fff;
     height: 240px;
     margin-bottom: 20px;;
+    transition: transform 0.5s linear;
     width: 240px;
 }
 
