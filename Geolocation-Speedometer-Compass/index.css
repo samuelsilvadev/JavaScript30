@@ -42,3 +42,13 @@ body {
 .compass-value {
     font-size: 6rem;
 }
+
+.error {
+    align-items: center;
+    background-color: #f44336;
+    color: #fff;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    width: 100%;
+}
