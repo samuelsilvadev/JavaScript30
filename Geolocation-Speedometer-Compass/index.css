@@ -50,5 +50,11 @@ body {
     display: flex;
     height: 80px;
     justify-content: center;
+    padding: 0 10px;
+    visibility: hidden;
     width: 100%;
+}
+
+.error.visible {
+    visibility: visible;
 }
